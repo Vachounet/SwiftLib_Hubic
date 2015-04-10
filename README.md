@@ -79,3 +79,12 @@ Delete container/object
 Get objects/containers list
 
     client.GetObjectListAsObject(path, true/false);
+
+
+----------
+
+
+If you have issues uploading large files, try increasing executionTimeout & maxRequestLength.
+Ex.: 
+
+    <httpRuntime targetFramework="4.5" executionTimeout="14400" maxRequestLength="2147483647"/>
