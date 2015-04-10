@@ -2,6 +2,16 @@ SwiftLib_Hubic
 ==============
 Modded SwiftLib to work with [Hubic.com](https://hubic.com)
 
+
+----------
+
+
+***Log4Net is needed***
+
+
+----------
+
+
 You first need a swift proxy for hubic. Ex.: [Hubic2SwiftGate](https://github.com/oderwat/hubic2swiftgate)
 
 Needed key in .config :
@@ -37,3 +47,4 @@ Code :
             }
         }        
         
+
