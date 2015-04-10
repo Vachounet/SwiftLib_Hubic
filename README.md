@@ -13,6 +13,7 @@ Modded SwiftLib to work with [Hubic.com](https://hubic.com)
 
 
 You first need a swift proxy for hubic. Ex.: [Hubic2SwiftGate](https://github.com/oderwat/hubic2swiftgate)
+This proxy will be the entry point to get a Hubic connection token and Hubic URL to perform calls.
 
 Needed key in .config :
 
@@ -48,3 +49,33 @@ Code :
         }        
         
 
+
+----------
+
+
+Create object
+
+    client.CreateObject(hubic_container, filename, "", local_file_path);
+
+
+----------
+
+
+Create container
+
+    client.CreateContainer(path);
+
+
+----------
+
+
+Delete container/object
+
+    client.DeleteContainer(path);
+
+
+----------
+
+Get objects/containers list
+
+    client.GetObjectListAsObject(path, true/false);
