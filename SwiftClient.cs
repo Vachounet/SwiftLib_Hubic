@@ -130,6 +130,29 @@ namespace SwiftLib
                 throw new Exception("Failed to delete file. Error: " + response.ToString());
         }
 
+        public void MoveObject(string objectName, string destination)
+        {
+            RestClient rc = GetRestClient();
+
+            objectName = RemoveLeadingSlash(objectName);
+
+            destination = RemoveLeadingSlash(destination);
+
+            destination = destination + "/" + objectName.Split('/').LastOrDefault();
+
+            IRestRequest request = GetRequest(objectName, Method.COPY);
+            request.AddHeader("Content-Length", "0");
+
+            request.AddHeader("Destination", "default/" + destination);
+
+            IRestResponse response = rc.Execute(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.Created)
+                throw new Exception("Failed to delete file. Error: " + response.ToString());
+
+            //Delete source once copied to destination
+            DeleteObject(objectName);
+        }
+
         // create object
         public string CreateObject(String containerName, String objectName, String path, String folderPath)
         {
